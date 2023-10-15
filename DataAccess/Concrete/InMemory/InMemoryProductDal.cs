@@ -71,6 +71,11 @@ namespace DataAccess.Concrete.InMemory
             return _products;
         }
 
+        public List<Product> GetByCategoryId(int categoryId)
+        {
+           return _products.Where(p=> p.CategoryId==categoryId).ToList();
+        }
+
         public void Update(Product product)
         {
             Product productToUpdate = _products.SingleOrDefault(p => p.ProductId == product.ProductId);
